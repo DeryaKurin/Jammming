@@ -33,9 +33,8 @@ class App extends React.Component {
   }
 
   removeTrack(track) {
-    let tracks = this.state.playlistTracks;
-    this.state.playlistTracks = this.state.playlistTracks.filter(track => track.id);
-    this.setState({playlistTracks: this.playlistTracks});
+    let tracks = this.state.playlistTracks.filter(track => track.id);
+    this.setState({playlistTracks: tracks});
   }
 
   updatePlaylistName(name) {
@@ -76,7 +75,7 @@ class App extends React.Component {
       </div>
     </div>
   );
-  }
+ }
 }
 
 export default App;
