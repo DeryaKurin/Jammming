@@ -1,8 +1,8 @@
-const clientId= '21cf8db0c9dd4f56b6aa71398d190e3c';
+const clientId= 'a252e10fe2064e6eb398ac9a7652c337';
 const redirectUri = 'http://localhost:3000/';
 const spotifyUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
 
-let accessToken = undefined;
+let accessToken;
 let expiresIn = undefined;
 
 const Spotify = {
@@ -53,10 +53,10 @@ const Spotify = {
 		}).then(response => response.json()).then(jsonResponse => userId = jsonResponse.id).then(() => {
 			const createPlaylistUrl = `https://api.spotify.com/v1/users/{user_id}/playlists`;
 			fetch(createPlaylistUrl, {
+        method: "POST",
 				headers: headers,
-				method: "POST",
 				body: JSON.stringify({
-					name: name
+				name: name
 				})
 			}).then(response => response.json()).then(jsonResponse => playlistId = jsonResponse.id).then(() => {
 				const addPlaylistTrackUrl = `https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}/tracks`;
