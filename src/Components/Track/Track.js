@@ -22,7 +22,7 @@ class Track extends React.Component {
 			onClick= {this.removeTrack}>-</a>;
 		} else {
 			return <a className= "Track-action"
-			  onClick = {this.addTrack}>+</a>;
+			  onClick= {this.addTrack}>+</a>;
 		}
 	}
 
