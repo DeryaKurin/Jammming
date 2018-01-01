@@ -46,7 +46,7 @@ class App extends React.Component {
       searchResults: []
     });
     this.updatePlaylistName('My playlist');
-    console.info(trackUris);
+    //console.info(trackUris);
   }
 
   search(term) {
