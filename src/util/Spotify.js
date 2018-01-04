@@ -1,5 +1,7 @@
-const clientId= 'a252e10fe2064e6eb398ac9a7652c337';
-const redirectUri = 'http://localhost:3000/';
+import {secret} from "./Secret.js";
+const clientId = secret.clientId;
+//const redirectUri = 'http://deruchan.surge.sh/';
+const redirectUri = 'http://deruchan.surge.sh/';
 const spotifyUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
 
 let accessToken;
@@ -45,7 +47,7 @@ const Spotify = {
 
 	savePlaylist(name, trackUris) {
 		if (!name || !trackUris) return;
-		const userUrl = 'https://api.spotify.com/v1/me';
+		const userUrl = `https://api.spotify.com/v1/me`;
 		const headers = {
 			Authorization: `Bearer ${accessToken}`};
 		let userId;
